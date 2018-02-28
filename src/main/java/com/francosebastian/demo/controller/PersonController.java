@@ -5,6 +5,7 @@ import com.francosebastian.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.ws.Response;
@@ -23,7 +24,8 @@ public class PersonController {
     PersonService personService;
 
     @GetMapping("/persons")
-    private ResponseEntity getAllPersons() {
+    @Transactional(readOnly = true)
+    public ResponseEntity getAllPersons() {
         List<Person> persons = personService.getAll();
         if(persons.isEmpty()){
             return new ResponseEntity<Person>(HttpStatus.NO_CONTENT);
@@ -32,7 +34,8 @@ public class PersonController {
     }
 
     @GetMapping("/person")
-    private ResponseEntity getPerson(@RequestParam Long id){
+    @Transactional(readOnly = true)
+    public ResponseEntity getPerson(@RequestParam Long id){
         Person person = personService.getOne(id);
         if(person == null){
             return new ResponseEntity<Person>(HttpStatus.NO_CONTENT);
@@ -41,7 +44,7 @@ public class PersonController {
     }
 
     @PutMapping("/person")
-    private ResponseEntity updatePerson(@RequestBody Person person){
+    public ResponseEntity updatePerson(@RequestBody Person person){
         personService.update(person);
         return new ResponseEntity(HttpStatus.OK);
     }

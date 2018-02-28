@@ -16,7 +16,7 @@ public class PersonService {
     PersonRepository personRepository;
 
     public Person getOne(Long id){
-        return this.personRepository.getOne(id);
+        return this.personRepository.findOne(id);
     }
 
     public List<Person> getAll(){
