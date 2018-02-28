@@ -1,22 +1,52 @@
-# springdemo2018
-A spring demo for job interview
+# Franco Sebastian Spring Demo For 23 People
 
-_**Run MySQL Server in Docker container by:**_
+This is a simple Spring Demo for a Job Interview
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+- Java JDK8 
+- MySql Database
+```
+If you don't have installed MySQL in your machine you can use Docker 
+
+**Run MySQL Server in Docker container by:**
+
+```
 docker run --name springdemo-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=demo -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -p 3306:3306 -d mysql:5.6
+```
+
+**Docker MySql Container Logs:**
+
+```
+docker logs springdemo-mysql
+```
+
+### Docker Java container  Task
 
 
-`To see the logging output from MySQL Server, and make sure the server is running OK.
-`
 
-**docker logs springdemo-mysql** 
+```
+./gradlew build buildDocker
+```
 
- **Mac OSX and Boot2Docker**, the Docker host is not local, but in a different VM. Run boot2docker ip to get the IP address of the VM, then use this IP address to access the MySQL Server through SQL Client UI Tool. For example, Boot2Docker IP usually is 192.168.59.103, so I used MySQL Workbench to open a connection to it, with user demo-user, password demo-pass, to make sure the Server can be connected, and an empty database demo in there.
+## Built With
 
-If you are using **Linux**, and you have MySQL Server running locally with stabdard port 3306, you may have to change the expoed port to different number, like 3307. So the running command will be:
+* [Spring Framework](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Gradle](https://maven.apache.org/) - Dependency Management
 
-docker run --name demo-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=demo -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -p 3307:3306 -d mysql:5.6 
+## Authors
 
-And you can access the server by localhost:3307/demo
+* **Franco Arraño** - *Initial work* - [Franco Arraño](https://github.com/francosebastian)
 
+See also the list of [contributors](https://github.com/francosebastian/springdemo2018/contributors) who participated in this project.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
