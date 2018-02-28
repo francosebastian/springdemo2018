@@ -5,15 +5,16 @@ import com.francosebastian.demo.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+
 import java.util.List;
 
 @Service
-@Transactional
 public class PersonService {
 
     @Autowired
-    PersonRepository personRepository;
+    private  PersonRepository personRepository;
+
+
 
     public Person getOne(Long id){
         return this.personRepository.findOne(id);

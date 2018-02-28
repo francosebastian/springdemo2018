@@ -20,7 +20,7 @@ public class Person implements Serializable {
     public Person() {
     }
 
-    private Long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -28,7 +28,7 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    private String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -36,7 +36,7 @@ public class Person implements Serializable {
         this.firstName = firstName;
     }
 
-    private String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
